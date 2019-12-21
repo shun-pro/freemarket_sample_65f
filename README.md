@@ -21,7 +21,6 @@
 |birthday_month_id|integer|null: false|
 |birthday_day_id|integer|null: false|
 |phone_num|integer|null: false, unique: true|
-|address|references|null: false, foreign_key: true|
 |telephone|integer||
 
 ### Association
@@ -53,7 +52,6 @@
 |name|string|null: false|
 |description|text||
 |category|references|null: false, foreign_key: true|
-|image|references|foreign_key: true|
 |condition|references|null: false, foreign_key: true|
 |size|references|null: false, foreign_key: true|
 |brand|string||
@@ -63,6 +61,10 @@
 |delivery_days|references|null: false, foreign_key: true|
 |price|integer|null: false|
 |status|references|null: false, foreign_key: true|
+|condition|string|null: false|
+|deliveryWay_charge|integer||
+|deliveryWay_value|string|null: false|
+|status|string|null: false|
 
 ###Association
 -belongs_to_active_hash :category
@@ -76,6 +78,10 @@
 -belongs_to :user
 -has_many :images
 -add_index :products, :name
+-belongs_to_enum :condition
+-belongs_to_enum :DeliveryCharge
+-belongs_to_enum :DeliveryDays
+-belongs_to_enum :DeliveryWay
 
 ##Imagesテーブル
 |Column|Type|Options|
@@ -108,11 +114,6 @@
 ###Association
 -has_many :products
 
-##Conditionテーブル
-|Column|Type|Options|
-|------|----|———|
-|value|string|null: false|
-
 ###Association
 -has_many :products
 
@@ -120,40 +121,14 @@
 |Column|Type|Options|
 |------|----|———|
 |value|string|null: false|
-|group|integer||
 
 ###Association
 -has_many :products
 
-##DeliveryChargeテーブル
-|Column|Type|Options|
-|------|----|———|
-|value|string|null: false|
+
 
 ###Association
 -has_many :products
-
-##DeliveryDaysテーブル
-|Column|Type|Options|
-|------|----|———|
-|value|string|null: false|
-
-###Association
--has_many :products
-
-##DeliveryWayテーブル
-|Column|Type|Options|
-|------|----|———|
-|value|string|null: false|
-|charge|integer||
-
-###Association
--has_many :products
-
-##Prefectureテーブル
-|Column|Type|Options|
-|------|----|———|
-|name|string|null :false|
 
 ###Association
 -has_many :products
