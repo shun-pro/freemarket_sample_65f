@@ -11,7 +11,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|null: false|
-|email|string|null:  false|
+|email|string|null:  false, unique: true|
 |encrypted_password|string|null: false|
 |first_name|string|null: false|
 |last_name|string|null: false|
@@ -20,11 +20,11 @@
 |birthday_year_id|integer|null: false|
 |birthday_month_id|integer|null: false|
 |birthday_day_id|integer|null: false|
-|phone_num|string|null: false|
+|phone_num|integer|null: false, unique: true|
 |authentication_num|integer|null: false|
 |content|text||
 |address|references|null: false, foreign_key: true|
-|telephone|string||
+|telephone|integer||
 
 ### Association
 -belongs_to_active_hash :birth_year
@@ -74,7 +74,6 @@
 -belongs_to_active_hash :delivery_days
 -belongs_to_active_hash :delivery_way
 -belongs_to_active_hash :status
--has_many_attached :images
 -belongs_to :user
 -has_many :images
 -add_index :products, :name
