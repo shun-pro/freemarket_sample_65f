@@ -133,14 +133,6 @@
 ###Association
 -has_many :products
 
-##statusテーブル
-|Column|Type|Options|
-|------|----|———|
-|name|string|null: false|
-
-###Association
--has_many :products
-
 ##Walletsテーブル
 |Column|Type|Options|
 |------|----|———|
