@@ -21,8 +21,6 @@
 |birthday_month_id|integer|null: false|
 |birthday_day_id|integer|null: false|
 |phone_num|integer|null: false, unique: true|
-|authentication_num|integer|null: false|
-|content|text||
 |address|references|null: false, foreign_key: true|
 |telephone|integer||
 
@@ -38,11 +36,12 @@
 ##Addressテーブル
 |Column|Type|Options|
 |------|----|———|
+|user_id|integer||
 |zip_code1|string|null: false|
 |prefecture_id|integer|null: false|
 |city|string|null: false|
-|address1|string||
-|address2|string||
+|address|string|null: false|
+|address_building|string||
 
 ###Association
 -belongs_to :user
@@ -73,7 +72,7 @@
 -belongs_to_active_hash :prefecture
 -belongs_to_active_hash :delivery_days
 -belongs_to_active_hash :delivery_way
--belongs_to_active_hash :status
+-belongs_to_enum :status
 -belongs_to :user
 -has_many :images
 -add_index :products, :name
