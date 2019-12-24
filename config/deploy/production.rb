@@ -22,6 +22,9 @@
 # role :db,  %w{deploy@example.com}
 server '3.114.5.239', user: 'ec2-user', roles: %w{app db web}
 
+set :rails_env, "production"
+set :unicorn_rack_env, "production"
+
 
 
 # Configuration
