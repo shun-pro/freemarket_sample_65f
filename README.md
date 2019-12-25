@@ -11,7 +11,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|null: false|
-|email|string|null:  false, unique: true|
+|email|string|null: false, unique: true|
 |encrypted_password|string|null: false|
 |first_name|string|null: false|
 |last_name|string|null: false|
@@ -32,7 +32,7 @@
 -has_one :card
 -has_one :address
 
-##Addressテーブル
+## Addressテーブル
 |Column|Type|Options|
 |------|----|———|
 |user_id|integer||
@@ -42,10 +42,10 @@
 |address|string|null: false|
 |address_building|string||
 
-###Association
+### Association
 -belongs_to :user
 
-##Productsテーブル
+## Productsテーブル
 |Column|Type|Options|
 |------|----|———|
 |user|references|null: false, foreign_key: true|
@@ -66,7 +66,7 @@
 |deliveryWay_value|string|null: false|
 |status|string|null: false|
 
-###Association
+### Association
 -belongs_to_active_hash :category
 -belongs_to_active_hash :condition
 -belongs_to_active_hash :size
@@ -83,26 +83,26 @@
 -belongs_to_enum :DeliveryDays
 -belongs_to_enum :DeliveryWay
 
-##Imagesテーブル
+## Imagesテーブル
 |Column|Type|Options|
 |------|----|———|
 |text|text|null: false|
 |product_id|references|foreign_key: true|
 
-###Association
+### Association
 -belongs_to :product
 
-##Cardテーブル
+## Cardテーブル
 |Column|Type|Options|
 |------|----|———|
 |user|references|null: false, foreign_key: true|
 |customer_id|string||
 |card_id|string||
 
-###Association
+### Association
 -belongs_to :user
 
-##Categoryテーブル
+## Categoryテーブル
 |Column|Type|Options|
 |------|----|———|
 |name|string|null: false|
@@ -111,35 +111,35 @@
 |size|integer||
 |bland|integer||
 
-###Association
+### Association
 -has_many :products
 
-###Association
+### Association
 -has_many :products
 
-##Sizeテーブル
+## Sizeテーブル
 |Column|Type|Options|
 |------|----|———|
 |value|string|null: false|
 
-###Association
+### Association
 -has_many :products
 
 
 
-###Association
+### Association
 -has_many :products
 
-###Association
+### Association
 -has_many :products
 
-##Walletsテーブル
+## Walletsテーブル
 |Column|Type|Options|
 |------|----|———|
 |user_id|references|foreign_key: true|
 |customer_id|references|foreign_key: true|
 |card_id|references|foreign_key: true|
 
-###Association
+### Association
 
 -belongs_to :user
